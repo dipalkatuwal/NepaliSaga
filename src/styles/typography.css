@@ -1,0 +1,85 @@
+/* ─── NepaliSaga Editorial Typography System ─── */
+
+/* Display — hero headlines */
+.type-display {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+
+/* Headline — section leads */
+.type-headline {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+/* Subhead — card titles */
+.type-subhead {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(0.875rem, 1.5vw, 1.0625rem);
+  font-weight: 600;
+  line-height: 1.38;
+}
+
+/* Body — long-form reading */
+.type-body {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  color: var(--ink2);
+}
+
+/* Caption / label */
+.type-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Devanagari headings */
+.type-devanagari {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-weight: 500;
+}
+
+/* Drop cap for first paragraph */
+.drop-cap::first-letter {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 3.5em;
+  font-weight: 900;
+  line-height: 0.85;
+  float: left;
+  margin-right: 0.08em;
+  margin-top: 0.06em;
+  color: var(--red);
+}
+
+/* Pull quote */
+.pull-quote {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.375rem;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--ink);
+  border-left: 3px solid var(--red);
+  padding-left: 1.25rem;
+  margin: 2rem 0;
+}
+
+/* Byline */
+.type-byline {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--ink3);
+}

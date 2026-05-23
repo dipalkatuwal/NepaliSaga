@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Noto+Serif+Devanagari:wght@400;500;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #FAF8F5;
+  --bg2: #F2EFE9;
+  --bg3: #FFFFFF;
+  --ink: #1A1208;
+  --ink2: #3D3326;
+  --ink3: #7A7060;
+  --ink4: #A09888;
+  --red: #B5281E;
+  --gold: #A67C00;
+  --gold2: #E8B80C;
+  --border: #DDD9D0;
+  --border2: #EBE7E0;
+  --green: #1B7A3E;
+}
+
+.dark {
+  --bg: #16120A;
+  --bg2: #1E1810;
+  --bg3: #26201A;
+  --ink: #F5F0E8;
+  --ink2: #D4CAB8;
+  --ink3: #8A8070;
+  --ink4: #6A6058;
+  --border: #3A3228;
+  --border2: #2E2820;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 4px; }
+::-webkit-scrollbar-track { background: var(--bg2); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ink3); }
+
+/* Breaking Ticker */
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-track {
+  animation: ticker-scroll 45s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+/* Live dot pulse */
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+.live-dot {
+  animation: live-pulse 1.4s ease-in-out infinite;
+}
+
+/* Reading progress */
+#reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: var(--red);
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
+/* Article typography */
+.article-prose p {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  color: var(--ink2);
+  margin-bottom: 1.5em;
+}
+
+.article-prose p:first-of-type::first-letter {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 3.5em;
+  font-weight: 900;
+  line-height: 0.85;
+  float: left;
+  margin-right: 0.08em;
+  margin-top: 0.06em;
+  color: var(--red);
+}
+
+/* Custom selection */
+::selection {
+  background: #E8B80C33;
+  color: var(--ink);
+}
