@@ -1,9 +1,6 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { getArticleBySlug, articles } from '@/data/articles'
-import Header from '@/components/layout/Header'
-import TopBar from '@/components/layout/TopBar'
-import Footer from '@/components/layout/Footer'
 import ArticleView from '@/components/article/ArticleView'
 import { SITE_NAME, SITE_URL } from '@/lib/constants'
 
@@ -47,12 +44,9 @@ export default async function ArticlePage({ params }: Props) {
 
   return (
     <>
-      <TopBar />
-      <Header />
       <main className="min-h-screen bg-[#FAF8F5]">
         <ArticleView article={article} />
       </main>
-      <Footer />
     </>
   )
 }

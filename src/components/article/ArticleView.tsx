@@ -1,9 +1,9 @@
 'use client'
 import Link from 'next/link'
-import { ArrowLeft, Share2, Bookmark, Clock, Eye } from 'lucide-react'
+import { ArrowLeft, Share2, Clock, Eye } from 'lucide-react'
 import type { Article } from '@/types'
 import { articles } from '@/data/articles'
-import ReadingProgressBar from '@/components/shared/ReadingProgressBar'
+
 
 interface ArticleViewProps {
   article: Article
@@ -14,7 +14,7 @@ export default function ArticleView({ article }: ArticleViewProps) {
 
   return (
     <>
-      <ReadingProgressBar />
+      
 
       <div className="max-w-[780px] mx-auto px-4 md:px-6 py-8 md:py-12">
         {/* Back */}
@@ -33,10 +33,8 @@ export default function ArticleView({ article }: ArticleViewProps) {
           {article.title}
         </h1>
 
-        {/* Byline */}
+        {/* Byline — date, read time, reads only (no author) */}
         <div className="flex flex-wrap items-center gap-2 text-[11.5px] text-[#7A7060] mb-6 pb-6 border-b border-[#DDD9D0]">
-          <span><strong className="text-[#1A1208]">{article.author}</strong></span>
-          <span className="text-[#DDD9D0]">·</span>
           <span>{article.publishedAt}</span>
           <span className="text-[#DDD9D0]">·</span>
           <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {article.readTime}</span>
@@ -45,9 +43,6 @@ export default function ArticleView({ article }: ArticleViewProps) {
           <div className="flex items-center gap-1.5 ml-auto">
             <button className="p-1.5 rounded border border-[#DDD9D0] hover:bg-[#F2EFE9] transition-colors" aria-label="Share">
               <Share2 className="w-3.5 h-3.5 text-[#7A7060]" />
-            </button>
-            <button className="p-1.5 rounded border border-[#DDD9D0] hover:bg-[#F2EFE9] transition-colors" aria-label="Bookmark">
-              <Bookmark className="w-3.5 h-3.5 text-[#7A7060]" />
             </button>
           </div>
         </div>

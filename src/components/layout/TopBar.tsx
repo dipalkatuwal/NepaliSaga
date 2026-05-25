@@ -1,8 +1,10 @@
 'use client'
+import { useRouter } from 'next/navigation'
 import { Search, Bell, Globe, TrendingUp } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 export default function TopBar() {
+  const router = useRouter()
   const today = new Date().toLocaleDateString('en-US', {
     weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
   })
@@ -39,7 +41,9 @@ export default function TopBar() {
             <span className="text-white/20">|</span>
             <span className="text-white/60">Gold <span className="text-[#E8B80C]/90">₨1,08,450</span></span>
           </div>
-          <button className="flex items-center gap-1.5 bg-white/[0.07] border border-white/10 rounded-sm px-2 py-1 hover:bg-white/12 transition-colors min-w-[120px] md:min-w-[150px]">
+          <button
+            onClick={() => router.push('/search')}
+            className="flex items-center gap-1.5 bg-white/[0.07] border border-white/10 rounded-sm px-2 py-1 hover:bg-white/12 transition-colors min-w-[120px] md:min-w-[150px]">
             <Search className="w-3 h-3 text-white/40" />
             <span className="text-white/40">Search sagas…</span>
           </button>

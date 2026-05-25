@@ -17,7 +17,6 @@ const tagVariantMap: Record<string, 'red' | 'green' | 'blue' | 'gold' | 'dark'> 
   Politics: 'red',
   Culture: 'dark',
   Climate: 'red',
-  Society: 'blue',
   Sports: 'gold',
 }
 
@@ -57,12 +56,7 @@ function getSectionThumb(article: Article): ReactElement {
         <text x="130" y="75" textAnchor="middle" fill="rgba(255,255,255,.07)" fontSize="48">🌊</text>
       </svg>
     ),
-    Society: (
-      <svg viewBox="0 0 260 130" className="w-full h-full">
-        <text x="130" y="75" textAnchor="middle" fill="rgba(255,255,255,.07)" fontSize="48">✈</text>
-        <text x="50%" y="110" textAnchor="middle" fill="rgba(255,255,255,.1)" fontSize="9" fontFamily="sans-serif" letterSpacing="4">ECONOMY</text>
-      </svg>
-    ),
+
   }
   return thumbs[section] ?? (
     <svg viewBox="0 0 260 130" className="w-full h-full">

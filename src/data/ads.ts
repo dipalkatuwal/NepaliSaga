@@ -57,7 +57,7 @@ export const trendingItems: TrendingItem[] = [
   { rank: 1, cat: 'Politics', title: 'Federal Budget 2082/83 - Rs. 2.14 Trillion Presented', time: '2 hours ago', reads: '87k', articleId: 0 },
   { rank: 2, cat: 'Economy', title: 'NEPSE Surges to 14-Week High at 2,247', time: '2 hours ago', reads: '52k', articleId: 1 },
   { rank: 3, cat: 'Economy', title: 'Gold All-Time High: NPR 1,08,450 Per Tola', time: '6 hours ago', reads: '48k', articleId: 3 },
-  { rank: 4, cat: 'Society', title: 'Remittance Hits Historic USD 10.4 Billion', time: 'Yesterday', reads: '41k', articleId: 6 },
+  { rank: 4, cat: 'Economy', title: 'Remittance Hits Historic USD 10.4 Billion', time: 'Yesterday', reads: '41k', articleId: 6 },
   { rank: 5, cat: 'Education', title: 'SEE Results: 82% Pass, 4,500 Score GPA 4.0', time: '3 hours ago', reads: '43k', articleId: 0 },
   { rank: 6, cat: 'Tech', title: 'Digital ID Goes National - Nagarik App 3M Downloads', time: '4 hours ago', reads: '39k', articleId: 2 },
   { rank: 7, cat: 'Sports', title: 'Nepal Cricket Qualifies for T20 WC 2027', time: 'Yesterday', reads: '36k', articleId: 0 },

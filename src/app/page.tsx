@@ -1,7 +1,6 @@
+export const dynamic = 'force-static'
 import type { Metadata } from 'next'
-import TopBar from '@/components/layout/TopBar'
-import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
+import Link from 'next/link'
 import HeroStory from '@/components/home/HeroStory'
 import StoryCard from '@/components/home/StoryCard'
 import CompactCard from '@/components/home/CompactCard'
@@ -12,11 +11,8 @@ import BullionWidget from '@/components/widgets/BullionWidget'
 import WeatherWidget from '@/components/widgets/WeatherWidget'
 import TrendingWidget from '@/components/widgets/TrendingWidget'
 import PollWidget from '@/components/widgets/PollWidget'
-import NewsletterWidget from '@/components/widgets/NewsletterWidget'
 import MarketsTable from '@/components/widgets/MarketsTable'
-import { TopAdBanner, InfeedAd, MarketplaceBanner, SidebarAd } from '@/components/ads/AdBanner'
 import { articles, heroArticle, featuredGrid, moreStories } from '@/data/articles'
-import { infeedAds, topBannerAd, partnerAds } from '@/data/ads'
 import { SITE_NAME, SITE_TAGLINE, SITE_DESCRIPTION } from '@/lib/constants'
 
 export const metadata: Metadata = {
@@ -48,12 +44,6 @@ const videoStories = [
 export default function HomePage() {
   return (
     <>
-      <TopBar />
-      <Header />
-
-      {/* Top leaderboard ad */}
-      <TopAdBanner ad={topBannerAd} />
-
       <main className="bg-[#FAF8F5]">
         <div className="max-w-[1260px] mx-auto px-4 md:px-6">
 
@@ -73,8 +63,35 @@ export default function HomePage() {
                 ))}
               </div>
 
-              {/* In-feed ad */}
-              <InfeedAd ad={infeedAds[0]} />
+              {/* ── NepseSage Ad — after grid, before more stories ── */}
+              <a
+                href="https://nepsesage.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-5 bg-[#0A1A10] border border-[#1B3A22] rounded-[4px] px-5 py-4 mb-6 hover:border-[#2D6A3F] transition-all duration-200 relative overflow-hidden"
+              >
+                <span className="absolute top-2 right-3 text-[8px] tracking-[0.12em] uppercase text-white/20">Sponsored</span>
+                {/* Icon */}
+                <div className="shrink-0 w-11 h-11 rounded-[3px] bg-[#1B3A22] flex items-center justify-center">
+                  <svg className="w-6 h-6 text-[#4CD964]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                    <polyline points="16 7 22 7 22 13" />
+                  </svg>
+                </div>
+                {/* Copy */}
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-0.5">
+                    <span className="text-[#4CD964] font-bold text-[13px] tracking-tight">NepseSage</span>
+                    <span className="text-[8.5px] tracking-[0.15em] uppercase text-white/25 border border-white/10 px-1.5 py-0.5 rounded-sm">Clinical Analyst</span>
+                  </div>
+                  <p className="text-[12px] text-white/55 leading-[1.5]">
+                    Institutional-quality NEPSE intelligence for retail investors — AI-driven portfolio insights, real-time market data & behavioral analysis.
+                  </p>
+                </div>
+                <div className="shrink-0 text-[10.5px] font-semibold tracking-[0.06em] text-[#4CD964] group-hover:translate-x-1 transition-transform duration-200 whitespace-nowrap">
+                  Analyse Free →
+                </div>
+              </a>
 
               {/* More stories */}
               <SectionHeader title="More Stories" className="mt-2" />
@@ -82,30 +99,51 @@ export default function HomePage() {
                 <StoryCard key={a.id} article={a} variant="feature" />
               ))}
 
-              {/* Marketplace banner */}
-              <MarketplaceBanner />
-
               {/* Photo Stories */}
               <SectionHeader title="Photo Stories" accent="gold" meta="This Week" />
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-7">
                 {articles.slice(4, 7).map((a) => (
-                  <a href={`/article/${a.slug}`} key={a.id} className="group block relative rounded-[4px] overflow-hidden cursor-pointer aspect-[4/3]">
+                  <Link href={`/article/${a.slug}`} key={a.id} className="group block relative rounded-[4px] overflow-hidden cursor-pointer aspect-[4/3]">
                     <div className="absolute inset-0" style={{ background: a.bg }} />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent group-hover:from-black/80 transition-all duration-300" />
                     <div className="absolute bottom-0 left-0 right-0 p-3">
                       <div className="text-[9px] text-white/60 mb-1 font-semibold tracking-[0.1em] uppercase">📸 {a.section}</div>
                       <div className="text-[12px] font-serif font-bold text-white leading-[1.35] line-clamp-2">{a.title}</div>
                     </div>
-                  </a>
+                  </Link>
                 ))}
               </div>
-
-              {/* In-feed ad 2 */}
-              <InfeedAd ad={infeedAds[1]} />
 
               {/* Business & Finance */}
               <SectionHeader title="Business & Finance" accent="green" meta="Today's Movers" />
               <MarketsTable />
+
+              {/* ── DDC Yak Cheese Ad — between sections, natural break ── */}
+              <a
+                href="https://ddcnepal.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col sm:flex-row items-center gap-5 bg-white border border-[#DDD9D0] rounded-[4px] px-5 py-5 mb-7 hover:shadow-[0_4px_20px_rgba(26,18,8,0.08)] hover:border-[#A09888] transition-all duration-200 relative overflow-hidden"
+              >
+                <span className="absolute top-2 right-3 text-[8px] tracking-[0.12em] uppercase text-[#A09888]">Sponsored</span>
+                {/* Visual */}
+                <div className="shrink-0 w-16 h-16 sm:w-14 sm:h-14 rounded-[3px] flex items-center justify-center text-3xl" style={{ background: 'linear-gradient(135deg,#F5EDD0,#E8D4A0)' }}>
+                  🧀
+                </div>
+                {/* Copy */}
+                <div className="flex-1 min-w-0 text-center sm:text-left">
+                  <div className="flex items-center justify-center sm:justify-start gap-2 mb-1">
+                    <span className="font-serif font-bold text-[14px] text-[#1A1208]">DDC Yak Cheese</span>
+                    <span className="text-[8.5px] tracking-[0.15em] uppercase text-[#A09888] border border-[#DDD9D0] px-1.5 py-0.5 rounded-sm">From the Himalayas</span>
+                  </div>
+                  <p className="text-[12px] text-[#7A7060] leading-[1.5]">
+                    Pure, organic yak cheese from Nepal's high-altitude pastures. Handcrafted by Dairy Development Corporation — taste the Himalayan difference.
+                  </p>
+                </div>
+                <div className="shrink-0 text-[10.5px] font-semibold tracking-[0.06em] uppercase text-[#B5281E] border border-[#B5281E] px-3 py-1.5 rounded-sm group-hover:bg-[#B5281E] group-hover:text-white transition-all duration-200 whitespace-nowrap">
+                  Learn More →
+                </div>
+              </a>
 
               {/* World & Diplomacy */}
               <SectionHeader title="World & Diplomacy" />
@@ -119,17 +157,6 @@ export default function HomePage() {
                     readsOverride={s.reads}
                   />
                 ))}
-              </div>
-
-              {/* Air Arabia ad */}
-              <div className="rounded-[4px] px-5 py-4 flex flex-wrap items-center justify-between gap-4 mb-7 bg-gradient-to-r from-[#003580] via-[#00509E] to-[#1E6FBF] relative overflow-hidden">
-                <span className="absolute top-1.5 right-3 text-[8px] tracking-[0.1em] uppercase text-white/20">Advertisement</span>
-                <div className="text-white">
-                  <div className="text-[9px] tracking-[0.18em] uppercase text-white/45 mb-1">Fly Smarter</div>
-                  <h3 className="font-serif text-[17px] font-bold mb-1">Air Arabia — Kathmandu to Dubai from NPR 18,500</h3>
-                  <p className="text-[11.5px] text-white/65">Direct flights · Baggage included · Free date change. Book before June 30, 2026.</p>
-                </div>
-                <button className="bg-white text-[#003580] text-[10.5px] font-bold tracking-[0.1em] uppercase px-5 py-2 rounded-[2px] border-none cursor-pointer hover:opacity-90 whitespace-nowrap">Book Flight</button>
               </div>
 
               {/* Health & Society */}
@@ -148,67 +175,94 @@ export default function HomePage() {
 
               {/* Tech & Startups */}
               <SectionHeader title="Tech & Startups" accent="green" meta="Innovation" />
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-7">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                 <StoryCard article={articles[2]} variant="grid" />
                 <StoryCard article={articles[1]} variant="grid" />
               </div>
 
-              {/* IME Remit ad */}
-              <InfeedAd ad={infeedAds[2]} />
+              {/* ── Dipal Katuwal Ad — foot of feed, tech-audience fit ── */}
+              <a
+                href="https://dipalkatuwal.com.np/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 bg-[#FAF8F5] border border-[#DDD9D0] border-l-4 border-l-[#B5281E] rounded-[4px] px-4 py-4 mb-7 hover:bg-[#F2EFE9] transition-all duration-200 relative"
+              >
+                <span className="absolute top-2 right-3 text-[8px] tracking-[0.12em] uppercase text-[#A09888]">Sponsored</span>
+                {/* Avatar placeholder */}
+                <div className="shrink-0 w-10 h-10 rounded-full bg-[#1A1208] flex items-center justify-center text-white font-serif font-black text-[15px] select-none">
+                  D
+                </div>
+                {/* Copy */}
+                <div className="flex-1 min-w-0">
+                  <div className="text-[11px] tracking-[0.1em] uppercase text-[#B5281E] font-bold mb-0.5">Built by a Nepali Developer</div>
+                  <div className="font-serif font-semibold text-[13.5px] text-[#1A1208] leading-[1.4] group-hover:text-[#B5281E] transition-colors">
+                    Dipal Katuwal — Full Stack Developer & AI Engineer from Biratnagar
+                  </div>
+                  <div className="text-[11px] text-[#7A7060] mt-0.5">MERN · Next.js · TypeScript · AI Integrations · dipalkatuwal.com.np</div>
+                </div>
+                <div className="shrink-0 text-[10px] font-semibold tracking-[0.06em] text-[#7A7060] group-hover:text-[#B5281E] transition-colors whitespace-nowrap">
+                  View Portfolio →
+                </div>
+              </a>
 
             </div>
 
             {/* === SIDEBAR === */}
             <aside className="w-full space-y-5">
-              <SidebarAd />
-              <NEPSEWidget />
+              <TrendingWidget />
+              <WeatherWidget />
               <ForexWidget />
               <BullionWidget />
-              <WeatherWidget />
-              <TrendingWidget />
+              <NEPSEWidget />
               <PollWidget />
-              <NewsletterWidget />
 
-              {/* Partner ads */}
-              <div className="bg-white border border-[#DDD9D0] rounded-[4px] overflow-hidden">
-                <div className="flex items-center justify-between px-4 py-3 border-b border-[#EBE7E0]">
-                  <h3 className="font-serif text-[15px] font-bold text-[#1A1208]">From Our Partners</h3>
-                  <span className="text-[9px] tracking-[0.1em] uppercase text-[#A09888]">Sponsored</span>
+              {/* ── Sidebar: NepseSage ── */}
+              <a
+                href="https://nepsesage.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block bg-[#0A1A10] border border-[#1B3A22] rounded-[4px] p-4 hover:border-[#2D6A3F] transition-all duration-200 relative overflow-hidden"
+              >
+                <span className="absolute top-2 right-3 text-[8px] tracking-[0.12em] uppercase text-white/20">Sponsored</span>
+                <div className="flex items-center gap-2 mb-2">
+                  <svg className="w-4 h-4 text-[#4CD964]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                    <polyline points="16 7 22 7 22 13" />
+                  </svg>
+                  <span className="font-bold text-[13px] text-[#4CD964]">NepseSage</span>
                 </div>
-                <div className="p-3 space-y-2.5">
-                  {partnerAds.map((ad) => (
-                    <div key={ad.brand} className="flex items-center gap-3 p-3 rounded-[3px] bg-[#FAF8F5] cursor-pointer hover:bg-[#F2EFE9] transition-colors">
-                      <div className="w-9 h-9 rounded-md flex items-center justify-center text-lg shrink-0" style={{ background: ad.bg }}>
-                        {ad.icon}
-                      </div>
-                      <div>
-                        <div className="text-[11.5px] font-semibold text-[#1A1208]">{ad.brand}</div>
-                        <div className="text-[10px] text-[#7A7060]">{ad.desc}</div>
-                      </div>
-                    </div>
-                  ))}
+                <p className="text-[11.5px] text-white/50 leading-[1.55] mb-3">
+                  Clinical-grade NEPSE analytics. AI portfolio insights, live market data & behavioral analysis for every Nepali investor.
+                </p>
+                <div className="text-[10px] font-bold tracking-[0.08em] uppercase text-[#4CD964] group-hover:translate-x-1 transition-transform duration-200">
+                  Start Analysing Free →
                 </div>
-              </div>
+              </a>
+
+              {/* ── Sidebar: DDC Yak Cheese ── */}
+              <a
+                href="https://ddcnepal.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block bg-white border border-[#DDD9D0] rounded-[4px] p-4 hover:shadow-[0_4px_16px_rgba(26,18,8,0.08)] hover:border-[#A09888] transition-all duration-200 relative"
+              >
+                <span className="absolute top-2 right-3 text-[8px] tracking-[0.12em] uppercase text-[#A09888]">Sponsored</span>
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-9 h-9 rounded-[3px] flex items-center justify-center text-xl shrink-0" style={{ background: 'linear-gradient(135deg,#F5EDD0,#E8D4A0)' }}>🧀</div>
+                  <div>
+                    <div className="font-serif font-bold text-[13px] text-[#1A1208]">DDC Yak Cheese</div>
+                    <div className="text-[9.5px] text-[#A09888] tracking-[0.06em]">Dairy Development Corporation</div>
+                  </div>
+                </div>
+                <p className="text-[11.5px] text-[#7A7060] leading-[1.55] mb-3">
+                  Organic yak cheese from Nepal's Himalayan highlands. Pure, handcrafted, and certified.
+                </p>
+                <div className="text-[10px] font-bold tracking-[0.08em] uppercase text-[#B5281E] group-hover:underline">
+                  Discover the Taste →
+                </div>
+              </a>
             </aside>
           </section>
-        </div>
-
-        {/* Full-width Ncell 5G ad */}
-        <div className="border-t border-[#EBE7E0]">
-          <div className="max-w-[1260px] mx-auto px-4 md:px-6 py-6">
-            <div className="relative rounded-[4px] overflow-hidden bg-gradient-to-r from-[#1E1E2E] via-[#14143A] to-[#0A0A28] py-3.5 px-6">
-              <span className="absolute top-1.5 right-3 text-[8px] tracking-[0.1em] uppercase text-white/20">Advertisement</span>
-              <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8">
-                <div className="font-serif text-[19px] font-black text-white">Ncell <span className="text-[#4CD964]">5G</span></div>
-                <div className="w-px h-6 bg-white/15 hidden md:block" />
-                <div className="text-center md:text-left">
-                  <div className="text-[13.5px] font-semibold text-white">Nepal's Fastest 5G Network — Now in 25 Districts</div>
-                  <div className="text-[11px] text-white/50 mt-0.5">100GB data + unlimited calls + free OTT subscription from NPR 999/month</div>
-                </div>
-                <button className="bg-[#4CD964] text-[#0A1A0A] text-[10.5px] font-bold tracking-[0.1em] uppercase px-4 py-2 rounded-[2px] border-none cursor-pointer hover:opacity-90 whitespace-nowrap">Switch to 5G</button>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Video & Multimedia */}
@@ -218,9 +272,7 @@ export default function HomePage() {
             {videoStories.map((v, i) => (
               <a key={i} href={`/article/${articles[v.id].slug}`} className="group block rounded-[4px] border border-[#DDD9D0] overflow-hidden hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(26,18,8,.10)] transition-all duration-200 cursor-pointer bg-white">
                 <div className="h-[110px] relative flex items-center justify-center" style={{ background: v.bg }}>
-                  <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center text-white text-lg group-hover:bg-white/25 transition-colors">
-                    ▶
-                  </div>
+                  <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center text-white text-lg group-hover:bg-white/25 transition-colors">▶</div>
                   <div className="absolute bottom-2 right-2 bg-black/70 text-white text-[9px] px-1.5 py-0.5 rounded-[2px]">{v.duration}</div>
                 </div>
                 <div className="p-3">
@@ -233,8 +285,6 @@ export default function HomePage() {
           </div>
         </div>
       </main>
-
-      <Footer />
     </>
   )
 }

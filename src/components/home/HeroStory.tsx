@@ -62,8 +62,7 @@ export default function HeroStory({ article }: HeroStoryProps) {
             </div>
 
             {/* Footer */}
-            <div className="flex items-center justify-between">
-              <span className="text-[10.5px] text-white/50">{article.byline}</span>
+            <div className="flex items-center justify-end">
               <span className="text-[10.5px] text-[#E8B80C] font-semibold tracking-[0.06em] group-hover:translate-x-1 transition-transform duration-200">
                 Read Full Story →
               </span>

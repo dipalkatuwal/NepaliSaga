@@ -192,10 +192,10 @@ const rawArticles = [
   },
   {
     id: 6,
-    cat: 'Society · Economy',
-    section: 'Society',
+    cat: 'Economy · Remittance',
+    section: 'Economy',
     title: 'Remittance Reaches USD 10.4 Billion in FY 2081/82 — Highest in Nepal\'s Recorded History',
-    byline: 'Nirmala Tamang · NepaliSaga Society Desk · May 23, 2026',
+    byline: 'Nirmala Tamang · NepaliSaga Business Desk · May 23, 2026',
     author: 'Nirmala Tamang',
     publishedAt: 'May 23, 2026',
     readTime: '6 min read',
@@ -219,7 +219,7 @@ const rawArticles = [
       { date: 'FY 2080/81', event: 'USD 9.8B — NRB forecasts imminent crossing of USD 10B threshold' },
       { date: 'FY 2081/82', event: 'Historic USD 10.4B; 26% of GDP — highest ever recorded' },
     ],
-    tags: ['Society', 'Economy', 'Remittance', 'Labour'],
+    tags: ['Economy', 'Remittance', 'Labour'],
   },
 ]
 

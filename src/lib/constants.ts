@@ -1,7 +1,7 @@
 export const SITE_NAME = 'NepaliSaga'
 export const SITE_TAGLINE = "The Chronicle of Nepal's Unfolding Story"
 export const SITE_URL = 'https://nepalIsaga.com'
-export const SITE_DESCRIPTION = "Nepal's premier digital publication — breaking news, markets, politics, and society."
+export const SITE_DESCRIPTION = "Nepal's premier digital publication — breaking news, markets, politics, and culture."
 
 export const NAV_ITEMS = [
   { label: 'Today', href: '/', active: true },
@@ -10,7 +10,6 @@ export const NAV_ITEMS = [
   { label: 'Markets', href: '/markets' },
   { label: 'Climate', href: '/climate' },
   { label: 'Technology', href: '/technology' },
-  { label: 'Society', href: '/society' },
   { label: 'Culture', href: '/culture' },
   { label: 'World', href: '/world' },
   { label: 'Opinion', href: '/opinion' },

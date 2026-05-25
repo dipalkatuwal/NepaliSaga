@@ -4,14 +4,14 @@ import { Moon, Sun } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 export default function DarkModeToggle({ className }: { className?: string }) {
-  const [dark, setDark] = useState(false)
+  // Start as undefined — we don't render the icon until we know the real state.
+  // This prevents a server/client mismatch since the server can't read localStorage.
+  const [dark, setDark] = useState<boolean | undefined>(undefined)
 
   useEffect(() => {
-    const stored = localStorage.getItem('theme')
-    if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      setDark(true)
-      document.documentElement.classList.add('dark')
-    }
+    // The inline script in layout.tsx has already applied the class.
+    // Just sync React state with whatever is on <html> right now.
+    setDark(document.documentElement.classList.contains('dark'))
   }, [])
 
   const toggle = () => {
@@ -19,6 +19,23 @@ export default function DarkModeToggle({ className }: { className?: string }) {
     setDark(next)
     document.documentElement.classList.toggle('dark', next)
     localStorage.setItem('theme', next ? 'dark' : 'light')
+  }
+
+  // Render a placeholder with the same dimensions until we know the mode.
+  // This avoids any layout shift while keeping the button always present.
+  if (dark === undefined) {
+    return (
+      <button
+        className={cn(
+          'p-1.5 rounded-sm border border-[#DDD9D0] dark:border-white/10 transition-colors',
+          className
+        )}
+        aria-label="Toggle dark mode"
+        disabled
+      >
+        <span className="block w-3.5 h-3.5" />
+      </button>
+    )
   }
 
   return (

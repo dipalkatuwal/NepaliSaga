@@ -1,14 +1,9 @@
 'use client'
 import Link from 'next/link'
-import TopBar from '@/components/layout/TopBar'
-import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
 
 export default function NotFound() {
   return (
     <>
-      <TopBar />
-      <Header />
       <main className="min-h-[60vh] bg-[#FAF8F5] flex items-center justify-center px-4">
         <div className="text-center max-w-lg">
           <div className="font-serif text-[120px] font-black text-[#EBE7E0] leading-none mb-2 select-none">404</div>
@@ -35,7 +30,6 @@ export default function NotFound() {
           </div>
         </div>
       </main>
-      <Footer />
     </>
   )
 }
