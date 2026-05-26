@@ -8,6 +8,7 @@ import TrendingWidget from '@/components/widgets/TrendingWidget'
 import NewsletterWidget from '@/components/widgets/NewsletterWidget'
 import { articles } from '@/data/articles'
 import type { Article } from '@/types'
+import { SITE_URL } from '@/lib/constants'
 import { SITE_NAME } from '@/lib/constants'
 
 interface SectionConfig {
@@ -110,9 +111,34 @@ interface SectionPageProps {
 export function generateSectionMetadata(section: string): Metadata {
   const config = SECTION_CONFIGS[section]
   if (!config) return {}
+
+  const { SITE_URL } = require('@/lib/constants')
+  const ogImageUrl =
+    `${SITE_URL}/og?` +
+    new URLSearchParams({
+      title:   config.label,
+      cat:     config.description,
+      section: config.label,
+    }).toString()
+
   return {
-    title: `${config.label} -- ${SITE_NAME}`,
+    title: `${config.label} — ${SITE_NAME}`,
     description: config.description,
+    alternates: { canonical: `${SITE_URL}/${config.slug}` },
+    openGraph: {
+      title: `${config.label} — ${SITE_NAME}`,
+      description: config.description,
+      url: `${SITE_URL}/${config.slug}`,
+      siteName: SITE_NAME,
+      type: 'website',
+      images: [{ url: ogImageUrl, width: 1200, height: 630, alt: config.label }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${config.label} — ${SITE_NAME}`,
+      description: config.description,
+      images: [ogImageUrl],
+    },
   }
 }
 
@@ -124,8 +150,21 @@ export default function SectionPage({ section }: SectionPageProps) {
   const hero = sectionArticles[0]
   const rest = sectionArticles.slice(1)
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home',       item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: config.label, item: `${SITE_URL}/${config.slug}` },
+    ],
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <main className="bg-[#FAF8F5] min-h-screen">
         <div className="max-w-[1260px] mx-auto px-4 md:px-6 py-8">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-8">
