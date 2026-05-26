@@ -1,7 +1,7 @@
 'use client'
 import { useRouter } from 'next/navigation'
 import { Search, Bell, Globe, TrendingUp } from 'lucide-react'
-import { cn } from '@/lib/utils'
+
 
 export default function TopBar() {
   const router = useRouter()

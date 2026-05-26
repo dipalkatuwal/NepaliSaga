@@ -112,7 +112,6 @@ export function generateSectionMetadata(section: string): Metadata {
   const config = SECTION_CONFIGS[section]
   if (!config) return {}
 
-  const { SITE_URL } = require('@/lib/constants')
   const ogImageUrl =
     `${SITE_URL}/og?` +
     new URLSearchParams({
@@ -234,7 +233,7 @@ function EmptySection({ section }: { section: string }) {
         href="/"
         className="text-[11px] tracking-[0.1em] uppercase font-semibold text-[#B5281E] hover:underline"
       >
-        ← Back to Today's Stories
+        ← Back to Today&apos;s Stories
       </Link>
     </div>
   )

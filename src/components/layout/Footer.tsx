@@ -183,7 +183,7 @@ export default function Footer() {
               Morning Saga Newsletter
             </h4>
             <p className="text-[12px] text-[#7A7060] leading-[1.65] mb-4">
-              Nepal's most important stories distilled to your inbox every morning at 7 AM NST.
+              Nepal&apos;s most important stories distilled to your inbox every morning at 7 AM NST.
             </p>
             <div className="space-y-2">
               <input

@@ -222,7 +222,7 @@ export default function Header() {
                   )}
                 >
                   {item.label}
-                  {(item as any).hot && (
+                  {(item as { hot?: boolean }).hot && (
                     <span className="ml-1 text-[8px] bg-[#B5281E] text-white px-1 py-0.5 rounded-sm font-bold tracking-[0.1em] align-middle">
                       HOT
                     </span>

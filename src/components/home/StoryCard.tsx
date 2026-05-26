@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Clock, Eye } from 'lucide-react'
 import Tag from '@/components/shared/Tag'
 import type { Article } from '@/types'
-import { cn } from '@/lib/utils'
+
 import type { ReactElement } from 'react'
 
 interface StoryCardProps {

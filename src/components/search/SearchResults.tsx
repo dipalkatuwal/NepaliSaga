@@ -5,9 +5,10 @@ import { Search, X, TrendingUp, Clock, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 import SectionHeader from '@/components/shared/SectionHeader'
 import StoryCard from '@/components/home/StoryCard'
-import { articles } from '@/data/articles'
 import { searchArticles, highlightText } from '@/lib/search'
-import type { Article } from '@/types'
+import { articles } from '@/data/articles'
+
+
 import type { SearchResult } from '@/lib/search'
 
 const SUGGESTIONS = ['Politics', 'NEPSE', 'Hydropower', 'Climate', 'Remittance', 'Gunla', 'Digital ID', 'Gold']
@@ -167,7 +168,7 @@ export default function SearchResults({ initialQuery }: SearchResultsProps) {
         {/* Tip */}
         {hasQuery && (
           <p className="text-[10.5px] text-[#A09888] mt-2">
-            Tip: use <code className="bg-[#F2EFE9] px-1 rounded text-[#3D3326]">'exact phrase</code> for exact match,{' '}
+            Tip: use <code className="bg-[#F2EFE9] px-1 rounded text-[#3D3326]">&apos;exact phrase</code> for exact match,{' '}
             <code className="bg-[#F2EFE9] px-1 rounded text-[#3D3326]">!exclude</code> to exclude a word
           </p>
         )}

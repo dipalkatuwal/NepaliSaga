@@ -137,7 +137,7 @@ export default function HomePage() {
                     <span className="text-[8.5px] tracking-[0.15em] uppercase text-[#A09888] border border-[#DDD9D0] px-1.5 py-0.5 rounded-sm">From the Himalayas</span>
                   </div>
                   <p className="text-[12px] text-[#7A7060] leading-[1.5]">
-                    Pure, organic yak cheese from Nepal's high-altitude pastures. Handcrafted by Dairy Development Corporation — taste the Himalayan difference.
+                    Pure, organic yak cheese from Nepal&apos;s high-altitude pastures. Handcrafted by Dairy Development Corporation — taste the Himalayan difference.
                   </p>
                 </div>
                 <div className="shrink-0 text-[10.5px] font-semibold tracking-[0.06em] uppercase text-[#B5281E] border border-[#B5281E] px-3 py-1.5 rounded-sm group-hover:bg-[#B5281E] group-hover:text-white transition-all duration-200 whitespace-nowrap">
@@ -255,7 +255,7 @@ export default function HomePage() {
                   </div>
                 </div>
                 <p className="text-[11.5px] text-[#7A7060] leading-[1.55] mb-3">
-                  Organic yak cheese from Nepal's Himalayan highlands. Pure, handcrafted, and certified.
+                  Organic yak cheese from Nepal&apos;s Himalayan highlands. Pure, handcrafted, and certified.
                 </p>
                 <div className="text-[10px] font-bold tracking-[0.08em] uppercase text-[#B5281E] group-hover:underline">
                   Discover the Taste →

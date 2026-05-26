@@ -13,11 +13,11 @@ export default function NewsletterWidget() {
         <h4 className="font-serif text-[16px] font-bold">The Morning Saga</h4>
       </div>
       <p className="text-[12px] text-white/60 leading-relaxed mb-4">
-        Nepal's most important stories, distilled into a 5-minute morning briefing. Delivered at 7 AM NST.
+        Nepal&apos;s most important stories, distilled into a 5-minute morning briefing. Delivered at 7 AM NST.
       </p>
       {submitted ? (
         <div className="text-[12px] text-[#4CD964] font-medium">
-          ✓ You're subscribed! First briefing tomorrow morning.
+          ✓ You&apos;re subscribed! First briefing tomorrow morning.
         </div>
       ) : (
         <div className="flex gap-2">

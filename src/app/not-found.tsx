@@ -22,7 +22,7 @@ export default function NotFound() {
               ← Return to Homepage
             </Link>
             <Link
-              href={"/markets" as any}
+              href="/markets"
               className="inline-flex items-center justify-center gap-2 border border-[#DDD9D0] text-[#3D3326] text-[11px] font-bold tracking-[0.1em] uppercase px-6 py-3 rounded-[2px] hover:bg-[#F2EFE9] transition-colors"
             >
               Markets →

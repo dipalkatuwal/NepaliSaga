@@ -52,7 +52,7 @@ export function MarketplaceBanner() {
       <span className="absolute top-1.5 right-3 text-[8px] tracking-[0.1em] uppercase text-white/20">Advertisement</span>
       <div>
         <div className="text-[9px] tracking-[0.2em] uppercase text-white/40 mb-1">NepaliSaga Marketplace</div>
-        <h3 className="font-serif text-[17px] font-bold text-white">Daraz Nepal's Mid-Year Sale — Up to 70% Off</h3>
+        <h3 className="font-serif text-[17px] font-bold text-white">Daraz Nepal&apos;s Mid-Year Sale — Up to 70% Off</h3>
         <p className="text-[11.5px] text-white/60 mt-1">Electronics, fashion, appliances & more. Free delivery across Kathmandu Valley. Ends May 31, 2026.</p>
       </div>
       <button className="bg-[#E8B80C] text-[#1A1208] text-[10.5px] font-bold tracking-[0.1em] uppercase px-4 py-2 rounded-[2px] border-none cursor-pointer hover:opacity-90 whitespace-nowrap shrink-0">
@@ -68,7 +68,7 @@ export function SidebarAd() {
       <span className="absolute top-1.5 right-2 text-[8px] tracking-[0.1em] uppercase text-white/20">Ad</span>
       <div className="font-serif text-[16px] font-bold text-white mb-1">NMB Digital Banking</div>
       <p className="text-[11.5px] text-white/60 leading-relaxed mb-4">
-        Open a zero-fee savings account in 3 minutes. 8.25% FD rates. Nepal's most awarded digital bank 2025.
+        Open a zero-fee savings account in 3 minutes. 8.25% FD rates. Nepal&apos;s most awarded digital bank 2025.
       </p>
       <button className="w-full bg-[#E8B80C] text-[#1A1208] text-[10.5px] font-bold tracking-[0.1em] uppercase py-2 rounded-[2px] border-none cursor-pointer hover:opacity-90 transition-opacity">
         Get Started Free
